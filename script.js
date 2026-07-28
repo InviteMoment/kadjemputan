@@ -205,7 +205,7 @@ class="mapPreview"
 alt="Lokasi Majlis">
 
 <p style="margin-top:15px;">
-Dewan Masjid Al-Muhtahdin,
+Dewan Masjid Al-Muhtadin,
 Saratok, Sarawak.
 </p>
 
