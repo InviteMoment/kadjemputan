@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hafiy Aziemah Azyan & Muhammad Nur Afiq | Majlis Perkahwinan</title>
+
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hafiy Aziemah Azyan & Muhammad Nur Afiq">
+    <meta property="og:site_name" content="By-Sann">
+    <meta property="og:description"
+          content="Majlis Perkahwinan Hafiy Aziemah Azyan & Muhammad Nur Afiq">
+    
+<meta property="og:url" content="https://invitemoment.github.io/kadjemputan/">
+
+<meta property="og:image"
+      content="https://invitemoment.github.io/kadjemputan/images/Ecard2026.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+
+    
+<div id="cover">
+  <video id="coverVideo"
+         autoplay
+         muted
+         loop
+         playsinline
+         preload="metadata">
+  <source src="video/video.mp4" type="video/mp4">
+  </video>
+
+  <button id="coverOpenBtn" type="button">
+    <span class="openText">Buka Kad Jemputan</span>
+  </button>
+</div>
+
+
+    <!-- WEBSITE: 8 HALAMAN -->
+    <main id="website">
+
+        <!-- PAGE 1: MAJLIS PERKAHWINAN -->
+        <section id="page1" class="page fade-section">
+            <img id="page1Image" src="images/page1.webp" alt="Majlis Perkahwinan">
+        </section>
+
+        <!-- PAGE 2: JEMPUTAN -->
+        <section id="page2" class="page fade-section">
+            <img id="page2Image" src="images/page2.webp" alt="Jemputan">
+        </section>
+
+        <!-- PAGE 3: NAMA PENGANTIN -->
+        <section id="page3" class="page fade-section">
+            <img id="page3Image" src="images/page3.webp" alt="Nama Pengantin">
+        </section>
+
+        <!-- PAGE 4: BUTIRAN MAJLIS -->
+        <section id="page4" class="page fade-section">
+            <img id="page4Image" src="images/page4.webp" alt="Butiran Majlis">
+        </section>
+
+       
+<!-- PAGE 5: RSVP -->
+<section id="page5" class="page fade-section livePage">
+    <img id="page5Image" src="images/page5.webp" alt="RSVP">
+    <div id="rsvpList" class="rsvpOverlay" aria-live="polite"></div>
+</section>
+
+
+<!-- PAGE 6: UCAPAN -->
+<section id="page6" class="page fade-section livePage">
+    <img id="page6Image" src="images/page6.webp" alt="Ucapan">
+    <div id="wishList" class="wishList" aria-live="polite"></div>
+</section>
+
+<!-- PAGE 7: DOA -->
+<section id="page7" class="page fade-section">
+    <img id="page7Image" src="images/page7.webp" alt="Doa">
+</section>
+
+        <!-- PAGE 8: TERIMA KASIH -->
+        <section id="page8" class="page fade-section thankYouPage">
+            <div class="thankYouOverlay">
+                <h2>Terima Kasih</h2>
+                <p>
+                    Semoga dengan kehadiran serta doa restu semua tetamu,
+                    majlis kami diberkati Allah SWT.
+                </p>
+                <small>Made with ❤️ by <strong>By-Sann</strong></small>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MUZIK -->
+    <audio id="music" preload="auto" loop playsinline>
+        <source src="./music/song.m4a" type="audio/mp4">
+    </audio>
+
+    <button id="musicBtn" class="floatingMusic" type="button" aria-label="Muzik">
+        <i class="fa-solid fa-music"></i>
+    </button>
+
+    <!-- BOTTOM SHEET -->
+    <div id="sheetOverlay" aria-hidden="true"></div>
+
+    <div id="bottomSheet" role="dialog" aria-modal="true" aria-label="Maklumat">
+        <div id="sheetContent"></div>
+    </div>
+
+    <!-- NAVIGASI UTAMA: 6 BUTANG -->
+    <nav id="bottomNav" aria-label="Navigasi utama">
+
+        <button id="dateBtn" type="button">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Tarikh dan tempat</span>
+        </button>
+
+        <button id="locationBtn" type="button">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Lokasi</span>
+        </button>
+
+        <button id="contactBtn" type="button">
+            <i class="fa-solid fa-phone"></i>
+            <span>Untuk dihubungi</span>
+        </button>
+
+        <button id="rsvpBtn" type="button">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <span>RSVP</span>
+        </button>
+
+        <button id="wishBtn" type="button">
+            <i class="fa-solid fa-heart"></i>
+            <span>Ucapan</span>
+        </button>
+
+        <button id="salamKautBtn" type="button">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>Salam kaut</span>
+        </button>
+
+    </nav>
+
+    <!-- NOTIFIKASI -->
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button id="lightboxClose" type="button" aria-label="Tutup">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <button id="lightboxPrev" class="lightboxPrev" type="button" aria-label="Sebelum">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <img id="lightboxImage" src="" alt="Gambar">
+
+        <button id="lightboxNext" class="lightboxNext" type="button" aria-label="Seterusnya">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
