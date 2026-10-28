@@ -1,0 +1,583 @@
+
+/* =====================================================
+   BY-SANN WEDDING INVITATION
+   STYLE.CSS
+   Tema: Romantic Garden / Soft Pink
+   ===================================================== */
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    overscroll-behavior-x: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff5f7;
+    color: #633b4a;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    padding-bottom: 90px;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* COVER PAGE */
+#cover {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: #fff0f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .6s ease, visibility .6s ease;
+}
+
+#cover.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#coverOpenBtn {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+}
+
+#envelope {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* WEBSITE */
+#website,
+#mainContent {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.page {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.page > img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* ANIMATION */
+.fade-section {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* LIVE PAGES */
+.livePage {
+    position: relative;
+}
+
+.livePage > img {
+    width: 100%;
+    height: auto;
+}
+
+/* RSVP LIVE LIST */
+#rsvpList {
+    position: absolute;
+    left: 7%;
+    top: 22%;
+    width: 86%;
+    height: 68%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #d6a0b0 transparent;
+}
+
+.rsvpCard {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(197, 135, 155, .65);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .94);
+    color: #633b4a;
+    box-shadow: 0 3px 10px rgba(100, 50, 70, .08);
+    overflow-wrap: anywhere;
+}
+
+.rsvpName {
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.rsvpInfo {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* UCAPAN LIVE LIST */
+#wishList {
+    position: absolute;
+    left: 7%;
+    top: 22%;
+    width: 86%;
+    height: 68%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #d6a0b0 transparent;
+}
+
+.wishCard {
+    flex: 0 0 auto;
+    padding: 13px;
+    border: 1px solid rgba(197, 135, 155, .55);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .95);
+    box-shadow: 0 3px 10px rgba(100, 50, 70, .08);
+    color: #633b4a;
+    overflow-wrap: anywhere;
+}
+
+.wishName {
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.wishMessage {
+    font-size: 13px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+}
+
+.wishDate {
+    margin-top: 7px;
+    color: #9b7885;
+    font-size: 10px;
+}
+
+/* THANK YOU PAGE */
+.thankYouPage {
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 25px;
+    background:
+        radial-gradient(circle at top left, #ffe0e9, transparent 55%),
+        linear-gradient(145deg, #fff8fa, #f8dce5);
+}
+
+.thankYouOverlay {
+    max-width: 420px;
+    text-align: center;
+    padding: 30px 22px;
+    border: 1px solid rgba(190, 125, 147, .4);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, .65);
+    box-shadow: 0 10px 35px rgba(130, 70, 90, .08);
+}
+
+.thankYouOverlay h2 {
+    margin: 0 0 16px;
+    color: #9d536f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 7vw, 38px);
+    font-weight: 500;
+}
+
+.thankYouOverlay p {
+    margin: 0 0 22px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.thankYouOverlay small {
+    font-size: 11px;
+    color: #8e6877;
+}
+
+/* BOTTOM NAVIGATION */
+#bottomNav {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 2000;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 560px;
+    min-height: 72px;
+    padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 2px;
+    background: rgba(255, 255, 255, .97);
+    border-top: 1px solid #f0d4de;
+    box-shadow: 0 -4px 18px rgba(90, 40, 60, .09);
+    backdrop-filter: blur(12px);
+}
+
+#bottomNav.hidden {
+    display: none;
+}
+
+#bottomNav button {
+    min-width: 0;
+    padding: 6px 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: transparent;
+    color: #875568;
+    border-radius: 10px;
+    transition: background .2s ease, color .2s ease;
+}
+
+#bottomNav button i {
+    font-size: 17px;
+}
+
+#bottomNav button span {
+    max-width: 100%;
+    font-size: 9px;
+    line-height: 1.15;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+#bottomNav button:hover,
+#bottomNav button:focus-visible {
+    background: #fff0f4;
+    color: #a34d70;
+    outline: none;
+}
+
+/* BOTTOM SHEET OVERLAY */
+#sheetOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2998;
+    background: rgba(40, 20, 30, .45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+#sheetOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#bottomSheet {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 2999;
+    width: 100%;
+    max-width: 560px;
+    max-height: 85dvh;
+    padding: 24px 20px calc(25px + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    border-radius: 22px 22px 0 0;
+    background: #fff9fb;
+    box-shadow: 0 -10px 35px rgba(60, 30, 40, .15);
+    transform: translate(-50%, 110%);
+    transition: transform .3s ease;
+}
+
+#bottomSheet.show {
+    transform: translate(-50%, 0);
+}
+
+#sheetContent h2,
+#sheetContent h3 {
+    margin: 0 0 14px;
+    color: #9d536f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+#sheetContent p {
+    margin: 8px 0;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#sheetContent button,
+#sheetContent a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px 5px 0 0;
+    padding: 11px 15px;
+    border-radius: 12px;
+    background: #b96e89;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* FORM ELEMENTS */
+#sheetContent input,
+#sheetContent textarea,
+#sheetContent select {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px 13px;
+    border: 1px solid #e7c8d3;
+    border-radius: 10px;
+    background: #fff;
+    color: #633b4a;
+    outline-color: #b96e89;
+}
+
+#sheetContent textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#sheetContent label {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* MUSIC BUTTON */
+.floatingMusic {
+    position: fixed;
+    right: 15px;
+    bottom: 88px;
+    z-index: 1800;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    background: #b96e89;
+    box-shadow: 0 4px 15px rgba(100, 45, 65, .2);
+}
+
+.floatingMusic.playing {
+    animation: musicPulse 2s linear infinite;
+}
+
+@keyframes musicPulse {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* TOAST */
+#toast {
+    position: fixed;
+    left: 50%;
+    bottom: 100px;
+    z-index: 6000;
+    max-width: 90%;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: #633b4a;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 12px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+}
+
+#toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 7000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(25, 12, 20, .94);
+    padding: 55px 15px;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+#lightboxImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#lightboxClose,
+.lightboxPrev,
+.lightboxNext {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .15);
+    color: #fff;
+}
+
+#lightboxClose {
+    top: 15px;
+    right: 15px;
+    font-size: 23px;
+}
+
+.lightboxPrev {
+    left: 10px;
+    top: 50%;
+}
+
+.lightboxNext {
+    right: 10px;
+    top: 50%;
+}
+
+/* GENERAL */
+button:focus-visible {
+    outline: 2px solid #a34d70;
+    outline-offset: 3px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* TABLET AND MOBILE */
+@media (max-width: 380px) {
+    #bottomNav {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    #bottomNav button i {
+        font-size: 15px;
+    }
+
+    #bottomNav button span {
+        font-size: 8px;
+    }
+
+    .rsvpName,
+    .wishName {
+        font-size: 12px;
+    }
+
+    .rsvpInfo,
+    .wishMessage {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 561px) {
+    #website {
+        box-shadow: 0 0 30px rgba(90, 40, 60, .08);
+    }
+}
+
+
+#cover {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  overflow: hidden;
+  background: #fff0f4;
+}
+
+#coverVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#coverOpenBtn {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: 0 20px 12vh;
+  background: transparent;
+}
+
+.openText {
+  padding: 13px 25px;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 30px;
+  background: rgba(255,255,255,.85);
+  color: #92516b;
+  font-size: 14px;
+}
