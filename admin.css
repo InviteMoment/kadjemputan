@@ -1,0 +1,580 @@
+
+/* ==========================================================
+   BY-SANN ADMIN
+   CLEAN DASHBOARD
+========================================================== */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+    background: #EEF3FB;
+    color: #12306B;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+.adminLayout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: linear-gradient(
+        180deg,
+        #12306B,
+        #1E4DA1
+    );
+    color: #fff;
+    padding: 30px 20px;
+    box-shadow: 6px 0 25px rgba(0, 0, 0, .12);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo h2 {
+    color: #D4AF37;
+    font-size: 28px;
+}
+
+.logo small {
+    color: #EAEAEA;
+    font-size: 12px;
+}
+
+.menuBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    padding: 15px 18px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 15px;
+    transition: .25s;
+}
+
+.menuBtn i {
+    width: 22px;
+    text-align: center;
+}
+
+.menuBtn:hover {
+    background: rgba(255, 255, 255, .13);
+}
+
+.menuBtn.active {
+    background: #fff;
+    color: #12306B;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   MAIN CONTENT
+========================================================== */
+
+.mainContent {
+    flex: 1;
+    min-width: 0;
+    padding: 35px;
+}
+
+.mainContent > h1 {
+    font-size: 30px;
+    margin-bottom: 28px;
+    color: #12306B;
+}
+
+.pageContent {
+    margin-top: 20px;
+}
+
+.pageContent h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   DASHBOARD
+========================================================== */
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.statCard {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, .3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .06);
+}
+
+.statCard h3 {
+    font-size: 42px;
+    color: #12306B;
+}
+
+.statCard p {
+    margin-top: 8px;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.searchBox {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #D8DFEA;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    outline: none;
+    background: #fff;
+}
+
+.searchBox:focus {
+    border-color: #12306B;
+    box-shadow: 0 0 0 3px rgba(18, 48, 107, .08);
+}
+
+
+/* ==========================================================
+   LIST CONTAINER
+========================================================== */
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.emptyState {
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+    color: #888;
+}
+
+
+/* ==========================================================
+   RSVP CARD
+========================================================== */
+
+.rsvpCard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, .25);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, .05);
+    overflow-wrap: anywhere;
+}
+
+.rsvpHeader,
+.wishHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.rsvpHeader h3,
+.wishHeader h3 {
+    color: #12306B;
+    font-size: 17px;
+}
+
+.rsvpHeader span {
+    background: #EAF1FF;
+    color: #12306B;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.rsvpBody p {
+    color: #666;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.rsvpAction,
+.wishAction {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.editBtn,
+.deleteBtn,
+.deleteWish {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 9px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.editBtn {
+    background: #1E4DA1;
+}
+
+.deleteBtn,
+.deleteWish {
+    background: #E53935;
+}
+
+.editBtn:hover,
+.deleteBtn:hover,
+.deleteWish:hover {
+    opacity: .85;
+}
+
+
+/* ==========================================================
+   WISH CARD
+========================================================== */
+
+.wishCard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, .25);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, .05);
+    overflow-wrap: anywhere;
+}
+
+.wishHeader span {
+    color: #E91E63;
+    font-size: 13px;
+}
+
+.wishMessage {
+    color: #555;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    margin: 12px 0;
+}
+
+.wishFooter {
+    color: #888;
+    font-size: 12px;
+}
+
+
+/* ==========================================================
+   MODAL
+========================================================== */
+
+.imageModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .82);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 9999;
+}
+
+#previewImage {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 14px;
+}
+
+#closeImageModal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #fff;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+.editBox {
+    background: #fff;
+    width: 420px;
+    max-width: 100%;
+    padding: 25px;
+    border-radius: 18px;
+}
+
+.editBox h2 {
+    color: #12306B;
+    margin-bottom: 20px;
+}
+
+.editBox label {
+    display: block;
+    margin: 12px 0 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+}
+
+.editBox input,
+.editBox select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D8DFEA;
+    border-radius: 9px;
+    outline: none;
+}
+
+.modalActions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.modalActions button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #12306B;
+    color: #fff;
+}
+
+.modalActions #cancelEditBtn {
+    background: #777;
+}
+
+
+/* ==========================================================
+   MEDIA MANAGER
+========================================================== */
+
+.mediaCard {
+    background: #fff;
+    padding: 24px;
+    margin-bottom: 22px;
+    border-radius: 18px;
+    box-shadow: 0 7px 22px rgba(0, 0, 0, .06);
+}
+
+.mediaCard h3 {
+    color: #12306B;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.mediaCard p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.mediaCard label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mediaCard input[type="file"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px dashed #B8C5DA;
+    border-radius: 10px;
+    background: #F8FAFD;
+}
+
+.coverPreview {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 14px;
+    margin: 15px 0;
+}
+
+.coverPreview[hidden] {
+    display: none;
+}
+
+.exportBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 11px;
+    background: #12306B;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: .25s;
+}
+
+.exportBtn:hover {
+    background: #0E2450;
+}
+
+.exportBtn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+#pageMediaList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.mediaItem {
+    min-width: 0;
+    background: #F7F8FB;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.mediaItem h4 {
+    font-size: 13px;
+    color: #12306B;
+    overflow-wrap: anywhere;
+}
+
+.mediaPreview {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 9px;
+    margin-top: 10px;
+    cursor: zoom-in;
+}
+
+
+/* ==========================================================
+   BUTTON STATES
+========================================================== */
+
+button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 900px) {
+    .adminLayout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .logo {
+        margin-bottom: 18px;
+    }
+
+    .sidebar .menuBtn {
+        display: inline-flex;
+        width: auto;
+        margin: 4px;
+        padding: 11px 13px;
+    }
+
+    .mainContent {
+        padding: 22px;
+    }
+
+    .mainContent > h1 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .mainContent {
+        padding: 16px;
+    }
+
+    .sidebar {
+        padding: 14px 10px;
+    }
+
+    .sidebar .menuBtn {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .mediaCard {
+        padding: 17px;
+    }
+
+    #pageMediaList {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rsvpAction,
+    .wishAction {
+        flex-wrap: wrap;
+    }
+}
