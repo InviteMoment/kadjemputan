@@ -1,0 +1,448 @@
+
+/* =====================================
+   BY-SANN ADMIN DASHBOARD
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6254a5;
+    --primary-dark: #493d85;
+    --background: #f6f5fa;
+    --white: #ffffff;
+    --text: #292638;
+    --muted: #817d91;
+    --border: #e9e6f0;
+    --danger: #dc5364;
+    --shadow: 0 5px 20px rgba(40, 30, 75, 0.06);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* =====================================
+   MAIN LAYOUT
+===================================== */
+
+.adminLayout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =====================================
+   SIDEBAR
+===================================== */
+
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    padding: 30px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logo {
+    padding: 5px 12px 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo h2 {
+    color: var(--primary);
+    font-size: 27px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.logo small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.menuBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #686477;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.menuBtn i {
+    width: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.menuBtn:hover {
+    background: #f1eff9;
+    color: var(--primary);
+}
+
+.menuBtn.active {
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+}
+
+#logoutBtn {
+    margin-top: auto;
+    color: var(--danger);
+}
+
+#logoutBtn:hover {
+    background: #fff0f1;
+}
+
+/* =====================================
+   MAIN CONTENT
+===================================== */
+
+.mainContent {
+    flex: 1;
+    min-width: 0;
+    padding: 38px;
+}
+
+.mainContent > h1 {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text);
+}
+
+.pageContent {
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.pageContent > h2 {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+/* =====================================
+   DASHBOARD STATISTICS
+===================================== */
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.statCard {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: 0.25s ease;
+}
+
+.statCard:hover {
+    transform: translateY(-3px);
+}
+
+.statCard h3 {
+    font-size: 34px;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.statCard p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =====================================
+   SEARCH BOX
+===================================== */
+
+.searchBox {
+    width: 100%;
+    max-width: 450px;
+    padding: 13px 16px;
+    margin-bottom: 22px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    background: var(--white);
+    color: var(--text);
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.searchBox:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(98, 84, 165, 0.10);
+}
+
+.searchBox::placeholder {
+    color: #aaa6b5;
+}
+
+/* =====================================
+   DATA LIST
+===================================== */
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dataCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.dataDetails {
+    flex: 1;
+    min-width: 0;
+}
+
+.dataDetails h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text);
+    overflow-wrap: anywhere;
+}
+
+.dataDetails p {
+    color: #666275;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.dataDetails small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* =====================================
+   DELETE BUTTON
+===================================== */
+
+.deleteBtn {
+    flex-shrink: 0;
+    padding: 10px 17px;
+    background: #fff0f1;
+    color: var(--danger);
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.deleteBtn:hover {
+    background: var(--danger);
+    color: var(--white);
+}
+
+/* =====================================
+   EMPTY MESSAGE
+===================================== */
+
+.emptyMessage {
+    color: var(--muted);
+    background: var(--white);
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* =====================================
+   GITHUB IMAGE GALLERY
+===================================== */
+
+#mediaPage > p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+#mediaPage strong {
+    color: var(--primary);
+}
+
+.mediaGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 18px;
+}
+
+.mediaItem {
+    background: var(--white);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.mediaItem img {
+    display: block;
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    background: #f7f6fa;
+    border-radius: 8px;
+}
+
+.mediaItem p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 11px;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================
+   RESPONSIVE TABLET
+===================================== */
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 210px;
+        min-width: 210px;
+        padding: 25px 13px;
+    }
+
+    .mainContent {
+        padding: 28px;
+    }
+
+    .statsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =====================================
+   RESPONSIVE MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+    .adminLayout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        padding: 16px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        gap: 7px;
+    }
+
+    .logo {
+        padding: 5px 8px 15px;
+        margin-bottom: 5px;
+    }
+
+    .logo h2 {
+        font-size: 23px;
+    }
+
+    .sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .logo {
+        grid-column: 1 / -1;
+    }
+
+    .menuBtn {
+        padding: 12px 10px;
+        font-size: 13px;
+        justify-content: flex-start;
+    }
+
+    #logoutBtn {
+        margin-top: 0;
+    }
+
+    .mainContent {
+        padding: 23px 16px;
+    }
+
+    .mainContent > h1 {
+        font-size: 23px;
+        margin-bottom: 23px;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .statCard {
+        padding: 22px;
+    }
+
+    .statCard h3 {
+        font-size: 29px;
+    }
+
+    .dataCard {
+        align-items: flex-start;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .deleteBtn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .mediaGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .mediaItem {
+        padding: 8px;
+    }
+
+    .mediaItem img {
+        height: 125px;
+    }
+}
