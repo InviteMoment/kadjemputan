@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | InviteMoment</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #172554, #4338ca, #7c3aed);
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 35px 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .logo h1 {
+            color: #312e81;
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .logo p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #222;
+            font-size: 21px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 9px;
+            background: #4338ca;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #312e81;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #loginMessage {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="logo">
+            <h1>InviteMoment</h1>
+            <p>Wedding Invitation Management</p>
+        </div>
+
+        <h2>Admin Login</h2>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Masukkan email admin"
+                    required
+                    autocomplete="username"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Masukkan password"
+                    required
+                    autocomplete="current-password"
+                >
+            </div>
+
+            <button type="submit" id="loginButton">
+                Log Masuk
+            </button>
+
+            <p id="loginMessage" role="status"></p>
+
+        </form>
+
+        <div class="footer">
+            © 2026 InviteMoment
+        </div>
+
+    </div>
+
+    <script type="module">
+
+        import {
+            auth,
+            signInWithEmailAndPassword,
+            onAuthStateChanged
+        } from "./firebase.js";
+
+        const loginForm = document.getElementById("loginForm");
+        const loginButton = document.getElementById("loginButton");
+        const loginMessage = document.getElementById("loginMessage");
+
+        // Jika sudah login, terus ke dashboard
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.location.replace("admin.html");
+            }
+        });
+
+        // Proses login
+        loginForm.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            loginButton.disabled = true;
+            loginButton.textContent = "Sedang log masuk...";
+            loginMessage.textContent = "";
+
+            try {
+
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+                loginMessage.style.color = "green";
+                loginMessage.textContent = "Log masuk berjaya!";
+
+                window.location.replace("admin.html");
+
+            } catch (error) {
+
+                console.error("Login error:", error);
+
+                loginMessage.style.color = "red";
+
+                if (
+                    error.code === "auth/invalid-credential" ||
+                    error.code === "auth/wrong-password" ||
+                    error.code === "auth/user-not-found"
+                ) {
+                    loginMessage.textContent =
+                        "Email atau password tidak betul.";
+
+                } else if (error.code === "auth/invalid-email") {
+
+                    loginMessage.textContent =
+                        "Format email tidak sah.";
+
+                } else if (error.code === "auth/too-many-requests") {
+
+                    loginMessage.textContent =
+                        "Terlalu banyak percubaan. Cuba lagi kemudian.";
+
+                } else {
+
+                    loginMessage.textContent =
+                        "Tidak berjaya log masuk. Sila cuba semula.";
+                }
+
+                loginButton.disabled = false;
+                loginButton.textContent = "Log Masuk";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
